@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class Receiver {
 
     public void receiveMessage(String[] message) {
-        System.out.println("[ "+ message[2] +" ] [ "+message[1]+" ] : ([SetorProduto]) precisamos de [ " + message[0] + " ] para [ "+ message[3]+ " ]");
+        System.out.println("[ "+ message[2] +" ] [ "+message[1]+" ] : ( "+ message[4]+" ) precisamos de [ " + message[0] + " ] para [ "+ message[3]+ " ]");
     }
 
 

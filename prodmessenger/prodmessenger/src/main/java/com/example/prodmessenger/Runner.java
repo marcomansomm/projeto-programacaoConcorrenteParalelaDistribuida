@@ -1,6 +1,5 @@
 package com.example.prodmessenger;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -27,12 +26,13 @@ public class Runner implements CommandLineRunner {
         Scanner ler = new Scanner(System.in);
 
         while(true) {
-            String[] msg = new String[4];
+            String[] msg = new String[5];
             LocalDateTime now = LocalDateTime.now();
             // Definir o formato desejado da string
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             // Converter a data em uma string formatada
             String dataAtualFormatada = now.format(formatter);
+            String setorDeVenda;
 
             System.out.println("Digite O item que você está precisando:");
             msg[0] = ler.nextLine();
@@ -42,6 +42,8 @@ public class Runner implements CommandLineRunner {
             System.out.print("Digite a data (formato: dd/MM/yyyy): ");
             String dataEstimada = ler.nextLine();
             msg[3] = dataEstimada;
+            System.out.println("Digite o Setor");
+            msg[4] = ler.nextLine();
 
             if(msg[0].contains("sair"))
                 break;
