@@ -1,9 +1,6 @@
 package com.example.consmessenger;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
@@ -14,17 +11,18 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class ConsApplication {
 
-	static final String directExchangeName = "direct-exchange";
-	static final String queueName = "fila-primeira";
-	static final String routingKey = "rota-um";
+	static final String topicExchangeName = "topic-exchange";
+	static final String queueName = "Alimentos";
+
+	static final String routingKey = "Alimentos";
 
 	@Bean
 	Queue queue() {
 		return new Queue(queueName, false, false, true);
 	}
 	@Bean
-	DirectExchange exchange() {
-		return new DirectExchange(directExchangeName,false, true);
+	TopicExchange exchange() {
+		return new TopicExchange(topicExchangeName,false, true);
 	}
 
 	@Bean
